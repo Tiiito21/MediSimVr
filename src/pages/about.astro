@@ -1,0 +1,25 @@
+---
+
+import Layout from '../layouts/Layout.astro'
+
+---
+
+<Layout title="About">
+
+  <main class="min-h-screen mt-24 mx-3">
+    <h1 class="text-4xl font-bold underline">About</h1>
+    <p> Pagina creada para la asignatura IPO 23-24 por Alejandro Aceves y Raul Ferri. Usando:</p>
+    
+    <div class="flex m-2 gap-3 ">
+      <a href="https://astro.build/" class="border-2 border-blue-500 p-1 rounded-2xl hover:bg-blue-100">
+          <img src="/astro.png" class="w-16 h-auto" alt="Astro logo"/>
+      </a>
+      <a href="https://tailwindcss.com/" class="flex flex-col border-2 border-blue-500 p-1 rounded-2xl hover:bg-blue-100">
+          <img src="/tailwind.png" class="w-16 h-auto mb-3" alt="Tailwind logo" />
+          <p class="text-lg text-semibold text-gray-800">Tailwind</p>
+      </a>
+    </div>
+
+  </main>
+
+</Layout>
