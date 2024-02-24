@@ -1,42 +1,15 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+import CarouselA from '../components/CarouselA.astro';
 ---
 
 <Layout title="MediSim VR">
-	<main class="min-h-screen mt-24 mx-3">
+	<main class="min-h-screen mt-24 mx-3 flex flex-col">
 
-		<section id="whyToUse" class="flex justify-center items-center h-auto"
-		>
-			<img src="Uso.webp" class="w-64 h-64"/>
-			<span class="ml-4 mt-4 self-start">
-				<h3 class="text-bold text-2xl text-blue-500">Porque usar MediSimVR</h3>
-				<ul class="list-disc ml-8 text-sm sm:text-base text-gray-700">
-					<li>Te permite trabajar desde la comodidad de tu hogar.</li>
-					<li>Experimenta procedimientos médicos de forma realista en entornos virtuales.</li>
-					<li>Recibe correcciones y orientación directa de profesionales médicos.</li>
-					<li>Acceso a prácticas virtuales inmersivas en cualquier momento y lugar.</li>
-					<li>Opción especializada diseñada para profesionales del ámbito médico.</li>
-					<li>Interactividad en entornos tridimensionales para una comprensión más profunda.</li>
-					<li>Ahorro de costos asociados con prácticas físicas y materiales educativos.</li>
-			</ul>
-			</span>
-		</section>
-
-		<section id="description" class="">
-			<h2 class="text-2xl font-bold mb-4 text-blue-500">¿Qué es MediSim VR?</h2>
-			<p class="text-gray-700">
-				MediSim VR representa una avanzada plataforma educativa basada en realidad virtual,
-				diseñada para el estudio y práctica de la medicina. Esta aplicación proporciona a estudiantes y profesionales un
-				entorno inmersivo donde pueden realizar procedimientos médicos guiados y recibir correcciones directas de instructores
-				especializados o de los propios profesores de la universidad. La tecnología de realidad virtual recrea situaciones clínicas realistas, ofreciendo una experiencia de
-				aprendizaje práctica y segura. Destacando por su enfoque interactivo en 3D, MediSim VR mejora significativamente la comprensión
-				de conceptos médicos complejos. Además, se distingue por ofrecer una opción especializada dirigida a profesionales médicos,
-				permitiéndoles perfeccionar habilidades específicas y mantenerse actualizados en sus respectivos campos. 
-			</p>
-		</section>
-
-
-		<section id="characteristics" class="mt-5">
+		<CarouselA />
+		
+		<section id="characteristics">
 			<h2 class="text-bold text-2xl text-blue-500">Características</h2>
 			<ul class="grid grid-cols-2 md:grid-cols-4 ">
 				<li class="p-4 bg-[#e2c3cf] text-gray-700">
@@ -63,5 +36,38 @@ import Layout from '../layouts/Layout.astro';
 			</li>
 			</ul>
 		</section>
+
+		<section id="whyToUse">
+			
+			<span class="ml-4 mt-4 self-start">
+				<h3 class="text-bold text-2xl text-blue-500">Porque usar MediSimVR</h3>
+
+				<ul class="list-disc ml-8 text-sm sm:text-base text-gray-700
+					grid grid-cols-1 md:grid-cols-2 gap-x-6"
+				>
+					<li>Te permite trabajar desde la comodidad de tu hogar.</li>
+					<li>Experimenta procedimientos médicos de forma realista en entornos virtuales.</li>
+					<li>Recibe correcciones y orientación directa de profesionales médicos.</li>
+					<li>Acceso a prácticas virtuales inmersivas en cualquier momento y lugar.</li>
+					<li>Opción especializada diseñada para profesionales del ámbito médico.</li>
+					<li>Interactividad en entornos tridimensionales para una comprensión más profunda.</li>
+					<li>Ahorro de costos asociados con prácticas físicas y materiales educativos.</li>
+			</ul>
+			</span>
+		</section>
+
+		<section id="description" class="">
+			<h2 class="text-2xl font-bold mb-4 text-blue-500 ">¿Qué es MediSim VR?</h2>
+			<p class="text-gray-700">
+				MediSim VR representa una avanzada plataforma educativa basada en realidad virtual,
+				diseñada para el estudio y práctica de la medicina. Esta aplicación proporciona a estudiantes y profesionales un
+				entorno inmersivo donde pueden realizar procedimientos médicos guiados y recibir correcciones directas de instructores
+				especializados o de los propios profesores de la universidad. La tecnología de realidad virtual recrea situaciones clínicas realistas, ofreciendo una experiencia de
+				aprendizaje práctica y segura. Destacando por su enfoque interactivo en 3D, MediSim VR mejora significativamente la comprensión
+				de conceptos médicos complejos. Además, se distingue por ofrecer una opción especializada dirigida a profesionales médicos,
+				permitiéndoles perfeccionar habilidades específicas y mantenerse actualizados en sus respectivos campos. 
+			</p>
+		</section>
+
 	</main>
 </Layout>
