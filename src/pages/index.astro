@@ -1,91 +1,157 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Carousel from '../components/Carousel.astro';
+  import Layout from '../layouts/Layout.astro'
+  import Form from '../components/Form.astro'
 ---
 
-<Layout title="MediSim VR">
-	<main class="min-h-screen mt-22 mx-3 md:mx-32 flex flex-col">
 
-		<!-- <Carousel/> -->
-		
-		<section class="flex mt-24" >
-			<div class="w-3/4 flex flex-col justify-center items-center">
-				<span>
-					<h2 class="font-extrabold text-4xl text-blue-500 ">Medisim<strong class="text-black">VR</strong></h2>
-					<p class="text-xl font-semibold text-gray-700">Reinventado la medicina</p>
-					<button type="button" class="text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600
-						hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg
-						text-sm px-5 py-2.5 text-center"
+
+<!--
+  Recuerda que la paleta de colores es:
+  Fondo Principal: bg-gray-100
+  Encabezado y Pie de Página: bg-gray-800, text-white
+  Títulos Principales: text-blue-500
+  Texto Principal: text-gray-700
+  Botones Normales: bg-blue-500, text-white
+  Botones de Enlace o Acción: bg-green-500, text-white
+  Colores de Foco/Hover: bg-blue-700, bg-green-700 (para resaltar al pasar el ratón)
+-->
+
+<Layout>
+  <div class="flex flex-col gap-5">
+    <section class="bg-blue-400 flex" >
+			<div class="w-1/2 flex flex-col justify-center items-center">
+				<div>
+					<h2 class=" font-extrabold text-xl sm:text-2xl md:text-4xl text-blue-500 ">Medisim<strong class="text-black">VR</strong></h2>
+					<p class="text-base sm:text-lg md:text-xl font-semibold text-gray-700">Reinventado la medicina</p>
+					<button type="button" class="text-white flex justify-center items-center bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br
+						focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center"
 					>
 						Pruebalo gratis ahora
+            <svg xmlns="http://www.w3.org/2000/svg"
+              width="24" height="24" viewBox="0 0 24 24"
+              stroke-width="1.5" stroke="currentColor"
+              stroke-linecap="round" stroke-linejoin="round"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+              <path d="M5 12l14 0" />
+              <path d="M15 16l4 -4" />
+              <path d="M15 8l4 4" />
+            </svg>
 					</button>
-				</span>
+				</div>
 				
 				
 			</div>
-			<img src="/UsoBanner.webp" alt="MediSim VR" class="w-1/2 h-1/2 rounded-lg   shadow-lg">
+			<img src="/UsoBanner.webp" alt="MediSim VR" class="w-1/2 h-1/2 shadow-lg">
 		</section>
 
-		
-		<section id="characteristics">
-			<h2 class="text-bold text-2xl text-blue-500">Características</h2>
-			<ul class="grid grid-cols-2 md:grid-cols-4 ">
-				<li class="p-4 bg-[#e2c3cf] text-gray-700">
-					<h3 class="text-bold text-lg">Realidad Virtual</h3>
-					<p class="text-sm italic font-medium leading-relaxed">
-						La realidad virtual te permite sumergirte en un entorno virtual y realizar procedimientos médicos
-						de manera segura y guiada.</p>
-				</li>
-				<li class="p-4 bg-[#a0dde9] text-gray-700">
-					<h3 class="text-bold text-lg">Profesores</h3>
-					<p class="text-sm italic font-medium leading-relaxed">
-						Profesores especializados en medicina te guiarán y corregirán tus actuaciones.</p>
-				</li>
-				<li class="p-4 bg-[#e2cc80] text-gray-700">
-					<h3 class="text-bold text-lg">Especialización</h3>
-					<p class="text-[#333333] text-sm italic font-medium leading-relaxed">
-						Profesionales del ámbito médico podrán acceder a una versión especializada de la aplicación.</p>
-				</li>
-				<li class="p-4 bg-[#f9d4a1] text-gray-700">
-					<h3 class="text-bold text-lg">Flexibilidad</h3>
-					<p class="text-sm italic font-medium leading-relaxed">
-							Estudia y practica a tu propio ritmo, adaptándote a tus horarios y necesidades, pudiendo practicar cuando quieras.</p>
-					</p>
-			</li>
-			</ul>
-		</section>
+        
+    <div id="whyToUse" class="mx-5 flex justify-center items-center gap-5">
 
-		<section id="whyToUse">
-			
-			<span class="ml-4 mt-4 self-start">
-				<h3 class="text-bold text-2xl text-blue-500">Porque usar MediSimVR</h3>
+      <div class="flex flex-col w-1/2">
+        <h3 class="text-bold text-4xl text-blue-500 mb-3">¿Por qué MediSimVR?</h3>
+        <img src="/Uso1.webp" alt="MediSim VR" class="shadow-lg">
+      </div>
 
-				<ul class="list-disc ml-8 text-sm sm:text-base text-gray-700
-					grid grid-cols-1 md:grid-cols-2 gap-x-6"
-				>
-					<li>Te permite trabajar desde la comodidad de tu hogar.</li>
-					<li>Experimenta procedimientos médicos de forma realista en entornos virtuales.</li>
-					<li>Recibe correcciones y orientación directa de profesionales médicos.</li>
-					<li>Acceso a prácticas virtuales inmersivas en cualquier momento y lugar.</li>
-					<li>Opción especializada diseñada para profesionales del ámbito médico.</li>
-					<li>Interactividad en entornos tridimensionales para una comprensión más profunda.</li>
-					<li>Ahorro de costos asociados con prácticas físicas y materiales educativos.</li>
-			</ul>
-			</span>
-		</section>
+      <div class="self-start mt-8 w-1/2 h-full flex flex-col gap-3 justify-start items-start">
+      
+        <section class="flex flex-col justify-center items-center gap-2">
+          <h4 class="self-start text-semibold text-lg sm:text-2xl text-gray-700 underline">¿Qué es MediSim VR?</h4>
+          <p class="text-sm sm:text-base text-gray-600">
+            MediSim VR representa una avanzada plataforma educativa basada en realidad virtual,
+            diseñada para el estudio y práctica de la medicina. Esta aplicación proporciona a estudiantes y profesionales un
+            entorno inmersivo donde pueden realizar procedimientos médicos guiados y recibir correcciones directas de instructores
+            especializados o de los propios profesores de la universidad. La tecnología de realidad virtual recrea situaciones clínicas realistas, ofreciendo una experiencia de
+            aprendizaje práctica y segura. Destacando por su enfoque interactivo en 3D, MediSim VR mejora significativamente la comprensión
+            de conceptos médicos complejos. Además, se distingue por ofrecer una opción especializada dirigida a profesionales médicos,
+            permitiéndoles perfeccionar habilidades específicas y mantenerse actualizados en sus respectivos campos. 
+        </section>
 
-		<section id="description" class="">
-			<h2 class="text-2xl font-bold mb-4 text-blue-500 ">¿Qué es MediSim VR?</h2>
-			<p class="text-gray-700">
-				MediSim VR representa una avanzada plataforma educativa basada en realidad virtual,
-				diseñada para el estudio y práctica de la medicina. Esta aplicación proporciona a estudiantes y profesionales un
-				entorno inmersivo donde pueden realizar procedimientos médicos guiados y recibir correcciones directas de instructores
-				especializados o de los propios profesores de la universidad. La tecnología de realidad virtual recrea situaciones clínicas realistas, ofreciendo una experiencia de
-				aprendizaje práctica y segura. Destacando por su enfoque interactivo en 3D, MediSim VR mejora significativamente la comprensión
-				de conceptos médicos complejos. Además, se distingue por ofrecer una opción especializada dirigida a profesionales médicos,
-				permitiéndoles perfeccionar habilidades específicas y mantenerse actualizados en sus respectivos campos. 
-			</p>
-		</section>
+        <section class="flex flex-col justify-center items-center gap-2">
+          <h4 class="self-start text-semibold text-lg sm:text-2xl text-gray-700 underline">Caracteristicas Generales</h4>
+          <ul class="list-disc list-inside text-sm sm:text-base text-gray-600"					  >
+            <li>Te permite trabajar desde la comodidad de tu hogar.</li>
+            <li>Experimenta procedimientos médicos de forma realista en entornos virtuales.</li>
+            <li>Recibe correcciones y orientación directa de profesionales médicos.</li>
+            <li>Opción especializada diseñada para profesionales del ámbito médico.</li>
+            <li>Interactividad en entornos tridimensionales para una comprensión más profunda.</li>
+            <li>Ahorro de costos asociados con prácticas físicas y materiales educativos.</li>
+          </ul>
+        </section>
 
-	</main>
+
+        <section class="flex flex-col justify-center items-center gap-2">
+          <h4 class="self-start text-semibold text-lg sm:text-2xl text-gray-700 underline">Caracteristicas Generales</h4>
+          <p class="text-sm sm:text-base text-gray-600">
+            Medisim puede ser utilizado en cualquier lugar del mundo siempre que se disponga de unas gafas
+            de realidad virtual y del espacio suficiente (3m<sup>2</sup>)
+          </p>
+        </section>
+      </div>
+    </div>
+
+    <section id="opinions" class="py-8 mx-auto">
+      <h3 class="text-2xl font-bold mb-4 text-center">Más de 1500 profesionales nos avalan</h3>
+    
+
+      <!-- GENERADAS MEDIANTE IA -->
+      <ul class="w-[80%] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        <li class="border p-4 rounded-md border-blue-300">
+          <p class="text-gray-700">"MediSimVR ha transformado la forma en que practico procedimientos médicos. La experiencia virtual es increíblemente realista y valiosa para mi formación."</p>
+          <p class="text-gray-500 mt-2">- Dra. María García, Cirujana General</p>
+        </li>
+    
+        <li class="border p-4 rounded-md border-blue-300">
+          <p class="text-gray-700">"Como anestesista, la simulación de MediSimVR me ha permitido mejorar mis habilidades y enfrentarme a situaciones desafiantes. Una herramienta indispensable en mi práctica diaria."</p>
+          <p class="text-gray-500 mt-2">- Dr. Javier Rodríguez, Anestesiólogo</p>
+        </li>
+    
+        <li class="border p-4 rounded-md border-blue-300">
+          <p class="text-gray-700">"He utilizado MediSimVR para entrenar a mi equipo en cirugía cardíaca. La plataforma ofrece un entorno práctico y seguro para perfeccionar nuestras técnicas."</p>
+          <p class="text-gray-500 mt-2">- Dra. Laura Pérez, Cirujana Cardiovascular</p>
+        </li>
+    
+        <li class="border p-4 rounded-md border-blue-300">
+          <p class="text-gray-700">"La interactividad en entornos tridimensionales de MediSimVR proporciona una comprensión más profunda de los procedimientos quirúrgicos. ¡Una herramienta excepcional para la educación médica!"</p>
+          <p class="text-gray-500 mt-2">- Dr. Carlos Martínez, Profesor de Cirugía</p>
+        </li>
+    
+        <li class="border p-4 rounded-md border-blue-300">
+          <p class="text-gray-700">"La flexibilidad de Medisim para trabajar desde cualquier lugar es un cambio de juego. Puedo practicar procedimientos desde mi hogar, lo cual es increíblemente conveniente."</p>
+          <p class="text-gray-500 mt-2">- Dra. Ana López, Ginecóloga</p>
+        </li>
+    
+        <li class="border p-4 rounded-md border-blue-300">
+          <p class="text-gray-700">"Como instructor de medicina, he visto el impacto positivo de MediSimVR en la formación de estudiantes. La retroalimentación directa de profesionales médicos es invaluable."</p>
+          <p class="text-gray-500 mt-2">- Dr. Luis Fernández, Instructor de Medicina</p>
+        </li>
+    
+        <li class="border p-4 rounded-md border-blue-300">
+          <p class="text-gray-700">"La opción especializada de MediSimVR para profesionales médicos está diseñada pensando en nuestras necesidades específicas. Es una herramienta que realmente marca la diferencia en la práctica clínica."</p>
+          <p class="text-gray-500 mt-2">- Dra. Marta Sánchez, Especialista en Medicina Interna</p>
+        </li>
+    
+        <li class="border p-4 rounded-md border-blue-300">
+          <p class="text-gray-700">"MediSimVR ha supuesto un ahorro significativo en costos asociados con prácticas físicas y materiales educativos. Una solución eficiente y rentable para la formación médica."</p>
+          <p class="text-gray-500 mt-2">- Dr. Juan Ramírez, Jefe de Residencia en Cirugía</p>
+        </li>
+      </ul>
+    </section>
+    
+
+
+    
+
+    <section class="flex justify-center items-center">
+      <div class="w-1/2">
+        <h1>HOLAAAAA</h1>
+      </div>
+
+      <Form />
+    </section>
+
+
+
+
+  </div>
 </Layout>

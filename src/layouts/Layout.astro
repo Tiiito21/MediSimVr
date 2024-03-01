@@ -18,13 +18,12 @@ const { title } = Astro.props;
 		<link rel="icon" type="image/svg+xml" href="/cardboards.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
-		<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.0/flowbite.min.js"></script>
 	</head>
 	<body class="bg-gray-100 text-gray-700">
 		<Header />
 		<slot />
-		<div class="mb-6" />
 		<Form />
 		<Footer />
+		
 	</body>
 </html>
