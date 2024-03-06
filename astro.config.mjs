@@ -7,5 +7,6 @@ import netlify from "@astrojs/netlify";
 export default defineConfig({
   integrations: [tailwind()],
   output: 'hybrid',
-  adapter: netlify()
+  adapter: netlify(),
+  compressHTML: false
 });
