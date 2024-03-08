@@ -1,0 +1,52 @@
+---
+  export const prerender = false
+
+  const { estado } = Astro.props;
+
+  const id = 1;
+
+---
+
+    <aside class="min-h-full pr-2 pl-3 border-r-2 bg-gray-100 border-white ">
+      <ul class="font-bold w-48 mx-6">
+        <li class="py-3 sm:py-4">
+          <div class="flex items-center justify-center">
+            <div class="rounded-full overflow-hidden border-2 border-gray-200 shadow-sm">
+              <img src="https://via.placeholder.com/40" alt="Usuario" class="w-10 h-10" />
+            </div>
+            <div class="ml-2 text-gray-700 font-medium flex flex-col">
+              <p>Example Student</p>
+              <span class="self-center dark:bg-blue-900 dark:text-blue-300 bg-blue-200 text-blue-800 px-1.5 py-0.5 w-auto text-sm rounded font-medium">
+                { estado }	
+              </span>
+            </div>
+          </div>
+        </li>
+        <li class="py-2 border-b border-opacity-50">
+          <div class="px-2 rounded-md hover:bg-gray-200 flex gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="scale-75 font-black" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 7m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" /><path d="M6 17m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" /><path d="M8.6 8.6l10.4 10.4" /><path d="M8.6 15.4l10.4 -10.4" /></svg>
+            <a href=`/profesional/procedure${id}` class="text-gray-700">Procedimientos</a>
+          </div>
+        </li>
+        <li class="py-2 border-b border-opacity-50">
+          <div class="px-2 rounded-md hover:bg-gray-200 flex gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="scale-75 font-black" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 8l0 4l2 2" /><path d="M3.05 11a9 9 0 1 1 .5 4m-.5 5v-5h5" /></svg>
+            <a href=`/profesional/historial${id}` class="text-gray-700">Historial</a>
+          </div>
+        </li>
+        <li class="py-2 border-b border-opacity-50">
+          <div class="px-2 rounded-md hover:bg-gray-200 flex gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="scale-75 font-black" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M19 4v16h-12a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12z" /><path d="M19 16h-12a2 2 0 0 0 -2 2" /><path d="M9 8h6" /></svg>
+            <a href=`/profesional/guides${id}` class="text-gray-700">Guides</a>
+          </div>
+        </li>
+        <li class="py-2 border-b border-opacity-50">
+          <div class="px-2 rounded-md hover:bg-gray-200 flex gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="scale-75 font-black" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 14v-3a8 8 0 1 1 16 0v3" /><path d="M18 19c0 1.657 -2.686 3 -6 3" /><path d="M4 14a2 2 0 0 1 2 -2h1a2 2 0 0 1 2 2v3a2 2 0 0 1 -2 2h-1a2 2 0 0 1 -2 -2v-3z" /><path d="M15 14a2 2 0 0 1 2 -2h1a2 2 0 0 1 2 2v3a2 2 0 0 1 -2 2h-1a2 2 0 0 1 -2 -2v-3z" /></svg>
+            <a href="" class="text-gray-700">Soporte</a>
+          </div>
+        </li>
+      </ul>
+
+    </aside>
+

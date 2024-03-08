@@ -4,26 +4,24 @@ import animations from '@midudev/tailwind-animations'
 
 export default {
 	content: [
-    './src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}',
-    './node_modules/flowbite/**/*.js'
+    './src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'
   ],
 	theme: {
     extend: {
       fontFamily: {
         'roboto': ['Roboto Mono', 'sans-serif'],
       },
-      colors: 
-        { 'footer': { DEFAULT: '#0d0221', 100: '#030007', 200: '#05010d', 300: '#080114', 400: '#0a021b', 500: '#0d0221', 600: '#30077b', 700: '#530cd5', 800: '#874cf5', 900: '#c3a5fa' },
-          'dark_primary': { DEFAULT: '#0f084b', 100: '#03020f', 200: '#06031e', 300: '#09052c', 400: '#0b063b', 500: '#0f084b', 600: '#1d1097', 700: '#2d18e5', 800: '#7264ef', 900: '#b8b1f7' },
-          'primary': { DEFAULT: '#26408b', 100: '#080d1c', 200: '#0f1a38', 300: '#172654', 400: '#1f3370', 500: '#26408b', 600: '#3558c0', 700: '#637fd4', 800: '#97aae2', 900: '#cbd4f1' },
-          'secondary': { DEFAULT: '#a6cfd5', 100: '#183033', 200: '#305f67', 300: '#488f9a', 400: '#72b2bc', 500: '#a6cfd5', 600: '#b7d8dd', 700: '#c9e2e6', 800: '#dbebee', 900: '#edf5f7' },
-          'tertiary': { DEFAULT: '#c2e7d9', 100: '#183d2f', 200: '#2f7a5d', 300: '#47b78c', 400: '#84cfb2', 500: '#c2e7d9', 600: '#cdece0', 700: '#daf0e8', 800: '#e6f5ef', 900: '#f3faf7' }
+      colors:{
+        'primary': { DEFAULT: '#022b3a', 100: '#00090c', 200: '#011218', 300: '#011a23', 400: '#02232f', 500: '#022b3a', 600: '#056c92', 700: '#08ade8', 800: '#52ccf9', 900: '#a8e6fc' },
+        'teal': { DEFAULT: '#1f7a8c', 100: '#06191c', 200: '#0c3139', 300: '#134a55', 400: '#196372', 500: '#1f7a8c', 600: '#2bacc5', 700: '#59c5db', 800: '#91d8e7', 900: '#c8ecf3' },
+        'columbia': { DEFAULT: '#bfdbf7', 100: '#0a2c4e', 200: '#13589c', 300: '#2384e4', 400: '#71afed', 500: '#bfdbf7', 600: '#cce2f9', 700: '#d9eafa', 800: '#e6f1fc', 900: '#f2f8fd' },
+        'lavender': { DEFAULT: '#e1e5f2', 100: '#1c2542', 200: '#384a83', 300: '#5f74ba', 400: '#a1add7', 500: '#e1e5f2', 600: '#e8ebf5', 700: '#eef0f8', 800: '#f4f5fa', 900: '#f9fafd' }, 
         }
-
-      
-    },
+    }
   },
-	plugins: [animations],
+	plugins: [
+    animations
+  ],
 }
 
 
