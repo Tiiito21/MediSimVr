@@ -2,56 +2,56 @@
     export const prerender = false
     import LayoutProf from '../../layouts/LayoutProf.astro'
     
-    import { data2 } from '../../data/procedures.ts'
+    import { data } from '../../data/procedures.ts'
 ---
 
 <LayoutProf title="Procedimientos Medicos">
-    <h1 class="text-2xl font-bold mb-4">Procedimientos</h1>
-    <h3 class="text-xl font-bold mb-3">Filtrado</h3>
+    <h1 class="text-2xl font-bold mb-4 text-header">Procedimientos</h1>
+    <h3 class="text-xl font-bold mb-3 text-text">Filtrado</h3>
 
     <div>
-        <span class="filterCabeza cursor-pointer bg-gray-200 text-gray-700 text-xs font-medium me-2
+        <span class="filterCabeza cursor-pointer bg-gray-200 text-text text-xs font-medium me-2
             px-2.5 py-0.5 rounded-full dark:bg-gray-700 dark:text-gray-300 hover:bg-gray-300"
         >
             Cabeza y Cuello
         </span>
 
-        <span class="filterTorso cursor-pointer bg-gray-200 text-gray-700 text-xs font-medium me-2
+        <span class="filterTorso cursor-pointer bg-gray-200 text-text text-xs font-medium me-2
             px-2.5 py-0.5 rounded-full dark:bg-gray-700 dark:text-gray-300 hover:bg-gray-300"
         >
             Torso
         </span>
 
-        <span class="filterSuperior cursor-pointer bg-gray-200 text-gray-700 text-xs font-medium me-2
+        <span class="filterSuperior cursor-pointer bg-gray-200 text-text text-xs font-medium me-2
             px-2.5 py-0.5 rounded-full dark:bg-gray-700 dark:text-gray-300 hover:bg-gray-300"
         >
             Extremidades Superiores
         </span>
 
-        <span class="filterInferior cursor-pointer bg-gray-200 text-gray-700 text-xs font-medium me-2
+        <span class="filterInferior cursor-pointer bg-gray-200 text-text text-xs font-medium me-2
             px-2.5 py-0.5 rounded-full dark:bg-gray-700 dark:text-gray-300 hover:bg-gray-300"
         >
             Extremidades Inferiores
         </span>
 
-        <span class="filterInterno cursor-pointer bg-gray-200 text-gray-700 text-xs font-medium me-2
+        <span class="filterInterno cursor-pointer bg-gray-200 text-text text-xs font-medium me-2
             px-2.5 py-0.5 rounded-full dark:bg-gray-700 dark:text-gray-300 hover:bg-gray-300"
         >
             Órganos Internos
         </span>
 
-        <span class="filterBasico cursor-pointer bg-gray-200 text-gray-700 text-xs font-medium me-2
+        <span class="filterBasico cursor-pointer bg-gray-200 text-text text-xs font-medium me-2
             px-2.5 py-0.5 rounded-full dark:bg-gray-700 dark:text-gray-300 hover:bg-gray-300"
         >
             Procedimientos Básicos
         </span>
 
-        <span class="filterOthers cursor-pointer bg-gray-200 text-gray-700 text-xs font-medium me-2
+        <span class="filterOthers cursor-pointer bg-gray-200 text-text text-xs font-medium me-2
             px-2.5 py-0.5 rounded-full dark:bg-gray-700 dark:text-gray-300 hover:bg-gray-300"
         >
             Otros
         </span>
-        <span class="filterDelete cursor-pointer bg-gray-200 text-gray-700 text-xs font-medium me-2
+        <span class="filterDelete cursor-pointer bg-gray-200 text-text text-xs font-medium me-2
             px-2.5 py-0.5 rounded-full dark:bg-gray-700 dark:text-gray-300 hover:bg-gray-300"
         >
             Quitar Filtros
@@ -60,29 +60,30 @@
     </div>
 
     <ul id="procedures" class="mt-3 border-t-2 border-gray-300">
-        {data2.map((procedure) => (
-            <li class={`${procedure.tipo} procedimiento flex items-center justify-between border-b-2 border-gray-300 p-2 hover:bg-gray-200`}>
-                <div class="flex gap-2">
-                    <img src="/procedure.webp" alt="Imagen del procedimiento" class="h-14" />
-                    <div>
-                        <a href={`/procedures/${procedure.nombre}`} class="text-large font-bold"> {procedure.nombre} </a>
-                        <p class="text-gray-500 text-sm"> {procedure.descripcion} </p>    
+        {data.map((procedure) => (
+            <li class={`${procedure.tipo} procedimiento`}>
+                <a href={`/procedures/${procedure.nombre}`} class="flex items-center justify-between border-b-2 border-gray-300 p-2 hover:bg-gray-200">
+                    <div class="flex gap-2">
+                        <img src="/procedure.webp" alt="Imagen del procedimiento" class="h-14" />
+                        <div>
+                            <p class="text-large hover:underline text-text font-bold"> {procedure.nombre} </p>
+                            <p class="text-subtext text-sm"> {procedure.descripcion} </p>    
+                        </div>
                     </div>
-                </div>
                 <svg class="cursor-pointer" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 3a3 3 0 0 1 2.995 2.824l.005 .176v12a3 3 0 0 1 -2.824 2.995l-.176 .005h-12a3 3 0 0 1 -2.995 -2.824l-.005 -.176v-12a3 3 0 0 1 2.824 -2.995l.176 -.005h12zm0 2h-9v14h9a1 1 0 0 0 .993 -.883l.007 -.117v-12a1 1 0 0 0 -.883 -.993l-.117 -.007zm-4.387 4.21l.094 .083l2 2a1 1 0 0 1 .083 1.32l-.083 .094l-2 2a1 1 0 0 1 -1.497 -1.32l.083 -.094l1.292 -1.293l-1.292 -1.293a1 1 0 0 1 -.083 -1.32l.083 -.094a1 1 0 0 1 1.32 -.083z" stroke-width="0" fill="currentColor" /></svg>
+                </a>
             </li>
         ))}
     </ul>
 </LayoutProf>
 
 <script>
-    import { data2 } from '../../data/procedures.ts'
-    
+   
     const filter = (tipo: string) => {
         const elements = document.querySelectorAll(".procedimiento");     
         elements.forEach((element) => {
             if(element.classList.contains(tipo)){
-                (element as HTMLLIElement).style.display = "flex";
+                (element as HTMLLIElement).style.display = "block";
             }
             else{
                 (element as HTMLLIElement).style.display = "none";
@@ -109,7 +110,7 @@
     filterDelete.addEventListener("click", () => {
         const elements = document.querySelectorAll(".procedimiento");     
         elements.forEach((element) => {
-            (element as HTMLLIElement).style.display = "flex";
+            (element as HTMLLIElement).style.display = "block";
         })
     })
 
