@@ -22,10 +22,10 @@ const { title } = Astro.props;
 	
 	<body class=" bg-gray-50 text-gray-700">
 
-		<Header />
+		<Header estado="Estudiante"/>
 		<div class="flex gap-3 min-h-screen">
 			<SideNav estado="Estudiante"/>
-			<main class="w-full">
+			<main class="w-full mt-3 mx-2">
 				<slot />	
 			</main>
 		</div>

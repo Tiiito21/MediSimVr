@@ -4,34 +4,34 @@ import LayoutProf from '../layouts/LayoutProf.astro'
 ---
 
 <LayoutProf title="Proffesional">
-  <main class="min-h-screen">
 
-    <h2 class="text-bold text-2xl text-blue-500">Características</h2>
-    <ul class="grid grid-cols-2 md:grid-cols-4 ">
-      <li class="p-4 bg-[#e2c3cf] text-gray-700">
-        <h3 class="text-bold text-lg">Realidad Virtual</h3>
-        <p class="text-sm italic font-medium leading-relaxed">
-          La realidad virtual te permite sumergirte en un entorno virtual y realizar procedimientos médicos
-          de manera segura y guiada.</p>
-      </li>
-      <li class="p-4 bg-[#a0dde9] text-gray-700">
-        <h3 class="text-bold text-lg">Profesores</h3>
-        <p class="text-sm italic font-medium leading-relaxed">
-          Profesores especializados en medicina te guiarán y corregirán tus actuaciones.</p>
-      </li>
-      <li class="p-4 bg-[#e2cc80] text-gray-700">
-        <h3 class="text-bold text-lg">Especialización</h3>
-        <p class="text-[#333333] text-sm italic font-medium leading-relaxed">
-          Profesionales del ámbito médico podrán acceder a una versión especializada de la aplicación.</p>
-      </li>
-      <li class="p-4 bg-[#f9d4a1] text-gray-700">
-        <h3 class="text-bold text-lg">Flexibilidad</h3>
-        <p class="text-sm italic font-medium leading-relaxed">
-            Estudia y practica a tu propio ritmo, adaptándote a tus horarios y necesidades, pudiendo practicar cuando quieras.</p>
-        </p>
-      </li>
-    </ul>
 
-  </main>
+  <h1 class="text-2xl font-bold mb-4">Dashboard</h1>
+  <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-2 gap-y-2 lg:gap-x-5 lg:gap-y-5">
+    <div class="border border-gray-500/60 h-24 rounded-xl flex flex-col justify-between p-3 shadow-lg">
+      <h3 class="font-semibold">Total de procedimientos</h3>
+      <p class="text-lg font-black">9</p>
+    </div>
+    <div class="border border-gray-500/60 h-24 rounded-xl flex flex-col justify-between p-3 shadow-lg">
+      <h3 class="font-semibold">Procedimientos Exitosos</h3>
+      <p class="text-lg font-black">7</p>
+    </div>
+    <div class="border border-gray-500/60 h-24 rounded-xl flex flex-col justify-between p-3 shadow-lg">
+      <h3 class="font-semibold">En progreso</h3>
+      <p class="text-lg font-black">1</p>
+    </div>
+    <div class="border border-gray-500/60 h-24 rounded-xl flex flex-col justify-between p-3 shadow-lg">
+      <h3 class="font-semibold">Procedimientos Erróneos</h3>
+      <p class="text-lg font-black">1</p>
+    </div>
+    <div class="border border-gray-500/60 h-24 rounded-xl flex flex-col justify-between p-3 shadow-lg">
+      <h3 class="font-semibold">Porcentaje de Éxito</h3>
+      <p class="text-lg font-black">83,33%</p>
+    </div>
+    
+    <!-- Agrega más rectángulos de datos según sea necesario -->
+  </div>
+
+  
 
 </LayoutProf>
