@@ -7,7 +7,7 @@ export default {
 	theme: {
     extend: {
       fontFamily: {
-        'roboto': ['Roboto Mono', 'sans-serif'],
+        'roboto': ['Roboto', 'sans-serif'],
       },
       colors:{
         'header': '#1f7a8c',
