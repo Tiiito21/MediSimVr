@@ -1,0 +1,35 @@
+---
+    import LayoutProf from '../../layouts/LayoutProf.astro'
+    import Header from '../../components/Header.astro';
+    import Footer from '../../components/Footer.astro';
+    import SideNav from '../../components/SideNav.astro';
+
+    let datosCookie;
+
+    if (Astro.cookies.has("userData")) {
+    const cookie = Astro.cookies.get("userData")
+        if(cookie){
+            datosCookie = JSON.parse(cookie.value);
+        }
+        
+    }
+    else{
+        return Astro.redirect('/login');
+    }
+
+    import { data } from '../../data/procedures.ts'
+---
+
+<LayoutProf title="Procedimientos Medicos">
+    <Header estado={datosCookie.type}/>
+    <div class="flex gap-3 min-h-screen">
+        <SideNav nombre={datosCookie.name} estado={datosCookie.type} userid={datosCookie.userid}/>
+        
+    </div>
+
+    <Footer />
+        
+
+</LayoutProf>
+
+

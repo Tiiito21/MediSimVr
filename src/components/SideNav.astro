@@ -9,34 +9,43 @@
 
     <aside class="min-h-full pr-2 pl-3 border-r-2 bg-sideNav">
       <ul class="font-bold w-48">
+        
         <li class="py-3 sm:py-4">
-          <a href="/" class="flex items-center justify-center p-2 rounded-xl hover:bg-slate-300">
+          <a href=`/dashboard${id}` class="flex items-center justify-center p-2 rounded-xl hover:bg-slate-300">
             <div class="rounded-full overflow-hidden border-2 border-gray-200 shadow-sm">
               <img src="https://via.placeholder.com/40" alt="Usuario" class="w-10 h-10" />
             </div>
             <div class="ml-2 text-text font-medium flex flex-col">
-              <p>{ nombre }</p>
+              <p>{nombre}</p>
               <span class="self-center bg-blue-200 text-blue-800 px-1.5 py-0.5 w-auto text-sm rounded font-medium">
-                { estado }	
+                { estado.charAt(0).toUpperCase() + estado.slice(1)  }
               </span>
             </div>
           </a>
         </li>
+        {(estado == 'profesor' || estado == 'alumno') && 
         <li class="py-2 border-b border-opacity-50">
           <div class="px-2 rounded-md hover:bg-gray-200 flex gap-2">
-            <svg xmlns="http://www.w3.org/2000/svg" class="scale-75" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 7m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" /><path d="M6 17m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" /><path d="M8.6 8.6l10.4 10.4" /><path d="M8.6 15.4l10.4 -10.4" /></svg>
+            <svg class="scale-75" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M22 9l-10 -4l-10 4l10 4l10 -4v6" /><path d="M6 10.6v5.4a6 3 0 0 0 12 0v-5.4" /></svg>
+            <a href=`/scholars/aula${id}` class="text-text">Aula Virtual</a>
+          </div>
+        </li>
+        }
+        <li class="py-2 border-b border-opacity-50">
+          <div class="px-2 rounded-md hover:bg-gray-200 flex gap-2">
+            <svg class="scale-75" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 7m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" /><path d="M6 17m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" /><path d="M8.6 8.6l10.4 10.4" /><path d="M8.6 15.4l10.4 -10.4" /></svg>
             <a href=`/profesional/procedure${id}` class="text-text">Procedimientos</a>
           </div>
         </li>
         <li class="py-2 border-b border-opacity-50">
           <div class="px-2 rounded-md hover:bg-gray-200 flex gap-2">
-            <svg xmlns="http://www.w3.org/2000/svg" class="scale-75" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 8l0 4l2 2" /><path d="M3.05 11a9 9 0 1 1 .5 4m-.5 5v-5h5" /></svg>
+            <svg class="scale-75" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 8l0 4l2 2" /><path d="M3.05 11a9 9 0 1 1 .5 4m-.5 5v-5h5" /></svg>
             <a href=`/profesional/historial${id}` class="text-text">Historial</a>
           </div>
         </li>
         <li class="py-2 border-b border-opacity-50">
           <div class="px-2 rounded-md hover:bg-gray-200 flex gap-2">
-            <svg xmlns="http://www.w3.org/2000/svg" class="scale-75" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M19 4v16h-12a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12z" /><path d="M19 16h-12a2 2 0 0 0 -2 2" /><path d="M9 8h6" /></svg>
+            <svg class="scale-75" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M19 4v16h-12a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12z" /><path d="M19 16h-12a2 2 0 0 0 -2 2" /><path d="M9 8h6" /></svg>
             <a href=`/profesional/guides${id}` class="text-text">Guides</a>
           </div>
         </li>
