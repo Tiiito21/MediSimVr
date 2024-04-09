@@ -29,8 +29,8 @@ const { title } = Astro.props;
 
 	<script >
     
-		const filter = (tipo, elements) => {     
-				elements.forEach((element) => {
+		const filter = (tipo:string, elements:NodeListOf<HTMLLIElement>) => {     
+				elements.forEach((element:HTMLLIElement) => {
 						if(element.classList.contains(tipo)){
 								(element).style.display = "block";
 						}
@@ -49,31 +49,31 @@ const { title } = Astro.props;
 		const filterOthers = document.querySelector(".filterOthers")
 		const filterDelete = document.querySelector(".filterDelete")
 		
-		filterCabeza.addEventListener("click", () => {
-			const elements = document.querySelectorAll(".procedimiento");
+		filterCabeza?.addEventListener("click", () => {
+			const elements = document.querySelectorAll(".procedimiento") as NodeListOf<HTMLLIElement>;
 			filter("Cabeza", elements)})
-		filterTorso.addEventListener("click", () => {
-			const elements = document.querySelectorAll(".procedimiento");
+		filterTorso?.addEventListener("click", () => {
+			const elements = document.querySelectorAll(".procedimiento") as NodeListOf<HTMLLIElement>;
 			filter("Torso", elements)})
-		filterSuperior.addEventListener("click", () => {
-			const elements = document.querySelectorAll(".procedimiento");
+		filterSuperior?.addEventListener("click", () => {
+			const elements = document.querySelectorAll(".procedimiento") as NodeListOf<HTMLLIElement>;
 			filter("Superiores", elements)})
-		filterInferior.addEventListener("click", () => {
-			const elements = document.querySelectorAll(".procedimiento");
+		filterInferior?.addEventListener("click", () => {
+			const elements = document.querySelectorAll(".procedimiento") as NodeListOf<HTMLLIElement>;
 			filter("Inferiores", elements)})
-		filterInterno.addEventListener("click", () => {
-			const elements = document.querySelectorAll(".procedimiento");
+		filterInterno?.addEventListener("click", () => {
+			const elements = document.querySelectorAll(".procedimiento") as NodeListOf<HTMLLIElement>;
 			filter("Internos", elements)})
-		filterBasico.addEventListener("click", () => {
-			const elements = document.querySelectorAll(".procedimiento");
+		filterBasico?.addEventListener("click", () => {
+			const elements = document.querySelectorAll(".procedimiento") as NodeListOf<HTMLLIElement>;
 			filter("Basicos", elements)})
-		filterOthers.addEventListener("click", () => {
-			const elements = document.querySelectorAll(".procedimiento");
+		filterOthers?.addEventListener("click", () => {
+			const elements = document.querySelectorAll(".procedimiento") as NodeListOf<HTMLLIElement>;
 			filter("Otros", elements)})
-		filterDelete.addEventListener("click", () => {
+		filterDelete?.addEventListener("click", () => {
 				const elements = document.querySelectorAll(".procedimiento");     
 				elements.forEach((element) => {
-						(element).style.display = "block";
+						(element as HTMLLIElement).style.display = "block";
 				})
 		})
 
