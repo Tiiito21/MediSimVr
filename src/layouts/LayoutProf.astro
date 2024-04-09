@@ -1,12 +1,12 @@
 ---
 import '@fontsource/roboto'
 
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import SideNav from '../components/SideNav.astro';
-
 import { ViewTransitions } from 'astro:transitions';
 const { title } = Astro.props;
+
+
+	
+
 
 ---
 
@@ -22,17 +22,63 @@ const { title } = Astro.props;
 		<ViewTransitions />
 	</head>
 	
-	<body class=" bg-gray-50 font-roboto">
-
-		<Header estado="Estudiante"/>
-		<div class="flex gap-3 min-h-screen">
-			<SideNav estado="Estudiante"/>
-			<main class="w-full mt-3 mx-2">
-				<slot />	
-			</main>
-		</div>
-		<Footer />
+	<body class=" bg-gray-50 font-roboto" transition:persist="">
+		<slot/>	
 		
 	</body>
 
+	<script >
+    
+		const filter = (tipo, elements) => {     
+				elements.forEach((element) => {
+						if(element.classList.contains(tipo)){
+								(element).style.display = "block";
+						}
+						else{
+								(element).style.display = "none";
+						}
+				})
+		}
+
+		const filterCabeza = document.querySelector(".filterCabeza")
+		const filterTorso = document.querySelector(".filterTorso")
+		const filterSuperior = document.querySelector(".filterSuperior")
+		const filterInferior = document.querySelector(".filterInferior")
+		const filterInterno = document.querySelector(".filterInterno")
+		const filterBasico = document.querySelector(".filterBasico")
+		const filterOthers = document.querySelector(".filterOthers")
+		const filterDelete = document.querySelector(".filterDelete")
+		
+		filterCabeza.addEventListener("click", () => {
+			const elements = document.querySelectorAll(".procedimiento");
+			filter("Cabeza", elements)})
+		filterTorso.addEventListener("click", () => {
+			const elements = document.querySelectorAll(".procedimiento");
+			filter("Torso", elements)})
+		filterSuperior.addEventListener("click", () => {
+			const elements = document.querySelectorAll(".procedimiento");
+			filter("Superiores", elements)})
+		filterInferior.addEventListener("click", () => {
+			const elements = document.querySelectorAll(".procedimiento");
+			filter("Inferiores", elements)})
+		filterInterno.addEventListener("click", () => {
+			const elements = document.querySelectorAll(".procedimiento");
+			filter("Internos", elements)})
+		filterBasico.addEventListener("click", () => {
+			const elements = document.querySelectorAll(".procedimiento");
+			filter("Basicos", elements)})
+		filterOthers.addEventListener("click", () => {
+			const elements = document.querySelectorAll(".procedimiento");
+			filter("Otros", elements)})
+		filterDelete.addEventListener("click", () => {
+				const elements = document.querySelectorAll(".procedimiento");     
+				elements.forEach((element) => {
+						(element).style.display = "block";
+				})
+		})
+
+	</script>	
+
 </html>
+
+

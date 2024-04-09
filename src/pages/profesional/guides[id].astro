@@ -1,68 +1,91 @@
 ---
-    export const prerender = false
-    import LayoutProf from '../../layouts/LayoutProf.astro'
+
+  import LayoutProf from '../../layouts/LayoutProf.astro'
+
+  import Header from '../../components/Header.astro';
+  import Footer from '../../components/Footer.astro';
+  import SideNav from '../../components/SideNav.astro';
+
+  let datosCookie;
+
+if (Astro.cookies.has("userData")) {
+  const cookie = Astro.cookies.get("userData")
+	if(cookie){
+		datosCookie = JSON.parse(cookie.value);
+	}
+	
+}
+else{
+	return Astro.redirect('/login');
+}
 ---
 
 <LayoutProf title="Guias Medicas">
+  <Header estado={datosCookie.type}/>
+  <div class="flex gap-3 min-h-screen">
+    <SideNav nombre={datosCookie.name} estado={datosCookie.type.charAt(0).toUpperCase() + datosCookie.type.slice(1)} userid={datosCookie.userid}/>
+    <main class="w-full mt-3 mx-2">
+      <h1 class="text-2xl font-bold mb-4">Guias de Uso</h1>
+      <h3 class="text-xl font-bold mb-3">Más utilizadas</h3>
 
-  <h1 class="text-2xl font-bold mb-4">Guias de Uso</h1>
-  <h3 class="text-xl font-bold mb-3">Más utilizadas</h3>
-
-  <ul class="max-w-md divide-y divide-gray-200 dark:divide-gray-700">
-    <li class="pb-3 sm:pb-4">
-      <div class="flex items-center space-x-4 rtl:space-x-reverse">
-          <div class="flex-shrink-0">
-            <img class="w-8 h-8 rounded-full" src="/Uso1.webp" alt="Guia1">
+      <ul class="max-w-md divide-y divide-gray-200 dark:divide-gray-700">
+        <li class="pb-3 sm:pb-4">
+          <div class="flex items-center space-x-4 rtl:space-x-reverse">
+              <div class="flex-shrink-0">
+                <img class="w-8 h-8 rounded-full" src="/Uso1.webp" alt="Guia1">
+              </div>
+              <div class="flex-1 min-w-0">
+                <p class="text-sm font-medium text-text truncate dark:text-white">
+                    Operacion de Amputacion de una pierna
+                </p>
+                <p class="text-sm text-subtext truncate dark:text-gray-400">
+                    Dr. Martin Canovas
+                </p>
+              </div>
+              <div class="inline-flex items-center text-base font-semibold text-text dark:text-white">
+                $12
+              </div>
           </div>
-          <div class="flex-1 min-w-0">
-            <p class="text-sm font-medium text-text truncate dark:text-white">
-                Operacion de Amputacion de una pierna
-            </p>
-            <p class="text-sm text-subtext truncate dark:text-gray-400">
-                Dr. Martin Canovas
-            </p>
+        </li>
+        <li class="py-3 sm:py-4">
+          <div class="flex items-center space-x-4 rtl:space-x-reverse">
+              <div class="flex-shrink-0">
+                <img class="w-8 h-8 rounded-full" src="/Uso2.webp" alt="Guia2">
+              </div>
+              <div class="flex-1 min-w-0">
+                <p class="text-sm font-medium text-text truncate dark:text-white">
+                    Colocacion de una protesis de cadera
+                </p>
+                <p class="text-sm text-gray-500 truncate dark:text-subtext">
+                    Dr. Damian Santos
+                </p>
+              </div>
+              <div class="inline-flex items-center text-base font-semibold text-text dark:text-white">
+                $13
+              </div>
           </div>
-          <div class="inline-flex items-center text-base font-semibold text-text dark:text-white">
-            $12
+        </li>
+        <li class="py-3 sm:py-4">
+          <div class="flex items-center space-x-4 rtl:space-x-reverse">
+              <div class="flex-shrink-0">
+                <img class="w-8 h-8 rounded-full" src="/Uso3.webp" alt="Guia 3">
+              </div>
+              <div class="flex-1 min-w-0">
+                <p class="text-sm font-medium text-text truncate dark:text-white">
+                    Limpieza de instrumentacion
+                </p>
+                <p class="text-sm text-subtext truncate dark:text-gray-400">
+                    Dr. Juan Perez
+                </p>
+              </div>
+              <div class="inline-flex items-center text-base font-semibold text-text dark:text-white">
+                $3
+              </div>
           </div>
-      </div>
-    </li>
-    <li class="py-3 sm:py-4">
-      <div class="flex items-center space-x-4 rtl:space-x-reverse">
-          <div class="flex-shrink-0">
-            <img class="w-8 h-8 rounded-full" src="/Uso2.webp" alt="Guia2">
-          </div>
-          <div class="flex-1 min-w-0">
-            <p class="text-sm font-medium text-text truncate dark:text-white">
-                Colocacion de una protesis de cadera
-            </p>
-            <p class="text-sm text-gray-500 truncate dark:text-subtext">
-                Dr. Damian Santos
-            </p>
-          </div>
-          <div class="inline-flex items-center text-base font-semibold text-text dark:text-white">
-            $13
-          </div>
-      </div>
-    </li>
-    <li class="py-3 sm:py-4">
-      <div class="flex items-center space-x-4 rtl:space-x-reverse">
-          <div class="flex-shrink-0">
-            <img class="w-8 h-8 rounded-full" src="/Uso3.webp" alt="Guia 3">
-          </div>
-          <div class="flex-1 min-w-0">
-            <p class="text-sm font-medium text-text truncate dark:text-white">
-                Limpieza de instrumentacion
-            </p>
-            <p class="text-sm text-subtext truncate dark:text-gray-400">
-                Dr. Juan Perez
-            </p>
-          </div>
-          <div class="inline-flex items-center text-base font-semibold text-text dark:text-white">
-            $3
-          </div>
-      </div>
-    </li>
-    
-  </ul>
+        </li>
+        
+      </ul>
+    </main>
+  </div>
+  <Footer />
 </LayoutProf>

@@ -1,10 +1,23 @@
 ---
 
 import Layout from '../layouts/Layout.astro'
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+let datosCookie;
+
+if (Astro.cookies.has("userData")) {
+  const cookie = Astro.cookies.get("userData")
+	if(cookie){
+		datosCookie = JSON.parse(cookie.value);
+	}
+	
+}
 
 ---
 
 <Layout title="About">
+  <Header estado={datosCookie ? datosCookie.type : null} userid={datosCookie ? datosCookie.userid : -1}/>
 
   <main class="min-h-screen my-5 mx-3">
     <h1 class="text-4xl font-bold underline">About</h1>
@@ -20,5 +33,6 @@ import Layout from '../layouts/Layout.astro'
       </a>
     </div>
   </main>
+  <Footer />
 
 </Layout>

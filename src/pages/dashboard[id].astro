@@ -1,0 +1,59 @@
+---
+import LayoutProf from '../layouts/LayoutProf.astro'
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import SideNav from '../components/SideNav.astro';
+
+let datosCookie;
+
+if (Astro.cookies.has("userData")) {
+  const cookie = Astro.cookies.get("userData")
+	if(cookie){
+		datosCookie = JSON.parse(cookie.value);
+	}
+	
+}
+else{
+	return Astro.redirect('/login');
+}
+
+
+---
+
+<LayoutProf title="Proffesional">
+
+  <Header estado={datosCookie.type}/>
+		<div class="flex gap-3 min-h-screen">
+			<SideNav nombre={datosCookie.name} estado={datosCookie.type.charAt(0).toUpperCase() + datosCookie.type.slice(1)} userid={datosCookie.userid}/>
+			<main class="w-full mt-3 mx-2">
+        <h1 class="text-2xl font-bold mb-4">Dashboard</h1>
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-2 gap-y-2 lg:gap-x-5 lg:gap-y-5">
+          <div class="border border-gray-500/60 h-24 rounded-xl flex flex-col justify-between p-3 shadow-lg">
+            <h3 class="font-semibold">Total de procedimientos</h3>
+            <p class="text-lg font-black">9</p>
+          </div>
+          <div class="border border-gray-500/60 h-24 rounded-xl flex flex-col justify-between p-3 shadow-lg">
+            <h3 class="font-semibold">Procedimientos Exitosos</h3>
+            <p class="text-lg font-black">7</p>
+          </div>
+          <div class="border border-gray-500/60 h-24 rounded-xl flex flex-col justify-between p-3 shadow-lg">
+            <h3 class="font-semibold">En progreso</h3>
+            <p class="text-lg font-black">1</p>
+          </div>
+          <div class="border border-gray-500/60 h-24 rounded-xl flex flex-col justify-between p-3 shadow-lg">
+            <h3 class="font-semibold">Procedimientos Erróneos</h3>
+            <p class="text-lg font-black">1</p>
+          </div>
+          <div class="border border-gray-500/60 h-24 rounded-xl flex flex-col justify-between p-3 shadow-lg">
+            <h3 class="font-semibold">Porcentaje de Éxito</h3>
+            <p class="text-lg font-black">77,78%</p>
+          </div>
+          
+          <!-- Agrega más rectángulos de datos según sea necesario -->
+        </div>
+      </main>
+		</div>
+		<Footer />
+  
+
+</LayoutProf>

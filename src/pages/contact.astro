@@ -1,12 +1,24 @@
 ---
 
   import Layout from '../layouts/Layout.astro'
-    
+  
+  import Header from '../components/Header.astro';
+  import Footer from '../components/Footer.astro';
   import Form from '../components/Form.astro'
 
+  let datosCookie;
+  if (Astro.cookies.has("userData")) {
+  const cookie = Astro.cookies.get("userData")
+    if(cookie){
+      datosCookie = JSON.parse(cookie.value);
+    }
+	
+  }
 ---
 
 <Layout title="Contacto">
+  <Header estado={datosCookie ? datosCookie.type : null} userid={datosCookie ? datosCookie.userid : -1}/>
+
   <main class="flex justify-center items-center my-5 mx-3">
         
     <img src="/Uso2.webp" alt="MediSim VR" class="w-1/3 shadow-lg">
@@ -16,5 +28,7 @@
     </div>
     
   </main>
+  <Footer />
+
 
 </Layout>

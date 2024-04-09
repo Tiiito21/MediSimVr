@@ -2,12 +2,12 @@
 import '@fontsource/roboto'
 
 import Header from '../components/Header.astro';
-import Form from '../components/Form.astro';
 import Footer from '../components/Footer.astro';
 
 
 import { ViewTransitions } from 'astro:transitions';
 const { title } = Astro.props;
+
 
 ---
 
@@ -20,14 +20,13 @@ const { title } = Astro.props;
 		<link rel="icon" type="image/svg+xml" href="/cardboards.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+		<script src="https://cdn.jsdelivr.net/npm/js-cookie@3/dist/js.cookie.min.js" defer></script>
 		<ViewTransitions />
 	</head>
 	<body class="min-h-screen bg-lavender-900 text-text font-roboto">
-		<Header estado="Estudiante"/>
-		
-			<slot />
-
-		<Footer />
+		<slot />
 		
 	</body>
+
+	<slot name="script"/>
 </html>

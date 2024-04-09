@@ -1,16 +1,31 @@
 ---
 
   import Layout from '../layouts/Layout.astro'
+  import Header from '../components/Header.astro';
+  import Footer from '../components/Footer.astro';
+  
+  let datosCookie;
 
+  if (Astro.cookies.has("userData")) {
+    const cookie = Astro.cookies.get("userData")
+    if(cookie){
+      datosCookie = JSON.parse(cookie.value);
+    }
+    
+  }
+  else{
+    return Astro.redirect('/login');
+  }
 ---
 
 <Layout title="404">
-
-  <div>
-    <h1 >404</h1>
-    <p >Pagina no encontrada</p>
-    <a href="/">Volver</a>
-  </div>
+  <Header estado={datosCookie ? datosCookie.type : null} userid={datosCookie ? datosCookie.userid : -1}/>
+    <div>
+      <h1 >404</h1>
+      <p >Pagina no encontrada</p>
+      <a href="/">Volver</a>
+    </div>
+  <Footer />
 </Layout>
 
 

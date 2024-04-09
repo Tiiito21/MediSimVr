@@ -1,9 +1,9 @@
 ---
   export const prerender = false
 
-  const { estado } = Astro.props;
+  const { nombre, estado, userid } = Astro.props;
 
-  const id = 1;
+  const id = userid;
 
 ---
 
@@ -15,7 +15,7 @@
               <img src="https://via.placeholder.com/40" alt="Usuario" class="w-10 h-10" />
             </div>
             <div class="ml-2 text-text font-medium flex flex-col">
-              <p>Example Student</p>
+              <p>{ nombre }</p>
               <span class="self-center bg-blue-200 text-blue-800 px-1.5 py-0.5 w-auto text-sm rounded font-medium">
                 { estado }	
               </span>
