@@ -17,13 +17,33 @@
         return Astro.redirect('/login');
     }
 
-    import { data } from '../../data/procedures.ts'
+    const response = await fetch("https://medisimback-production.up.railway.app/getClasses", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            userid: datosCookie.userid,
+        }),
+    })
+    const classes = await response.json();
+
 ---
 
 <LayoutProf title="Procedimientos Medicos">
     <Header estado={datosCookie.type}/>
     <div class="flex gap-3 min-h-screen">
         <SideNav nombre={datosCookie.name} estado={datosCookie.type} userid={datosCookie.userid}/>
+        <ul id="procedures" class="mt-3 border-t-2 border-gray-300 min-w-full" >
+            {classes && classes.map((clase:{name:string}) => (
+                <li class="flex justify-between p-3 border-b-2 border-gray-300">
+                    <div>
+                        <h2 class="text-lg font-bold">{clase.name}</h2>
+                        <p class="text-sm"></p>
+                    </div>
+                </li>))
+            }
+        </ul>
         
     </div>
 
