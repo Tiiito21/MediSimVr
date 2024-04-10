@@ -18,10 +18,18 @@
           <li><a href="/contact" class=" hover:underline">Contact</a></li>
           <li><a href="/about" class=" hover:underline">About</a></li>
           {estado != undefined ?
-          <li><a href=`/dashboard${userid}`> <img src="https://via.placeholder.com/40" alt="Usuario" class="w-8 sm:w-10 h-auto cursor-pointer rounded-full" /> </a></li> :
-          <li class="flex gap-2 justify-center items-center"><a href="/login" class=" hover:underline">Iniciar Sesion</a> <a href="/register" class="bg-white hover:bg-gray-100 text-text py-2 px-2 rounded-full">
-  Registrarse
-</button></a></li>}
+            <li class="group/item">
+              <a href=`/dashboard${userid}` > <img src="https://via.placeholder.com/40" alt="Usuario" class="w-8 sm:w-10 h-auto cursor-pointer rounded-full" /> </a>
+              <div class="bg-white hidden group-hover/item:block absolute border border-black right-7 rounded-md">
+                <a href=`/settings${userid}` class="block text-text hover:bg-gray-200 py-2 px-4">Ajustes</a>
+                <a href="/logout" class="block text-text hover:bg-gray-200 py-2 px-4">Cerrar Sesion</a>
+              </div>  
+            </li> :
+            <li class="flex gap-2 justify-center items-center">
+              <a href="/login" class=" hover:underline">Iniciar Sesion</a>
+              <a href="/register" class="bg-white hover:bg-gray-100 text-text py-2 px-2 rounded-full">Registrarse</a>
+            </li>
+          }
         </ul>
       </nav>
   </div>

@@ -1,0 +1,12 @@
+---
+
+import Layout from "../layouts/Layout.astro"
+
+
+if (Astro.cookies.has("userData")) {
+  const cookie = Astro.cookies.delete("userData")
+}
+
+return Astro.redirect(`/`);
+
+---
