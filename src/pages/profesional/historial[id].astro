@@ -18,6 +18,23 @@
     return Astro.redirect('/login');
   }
 
+  const procedures = await fetch(`https://medisimback-production.up.railway.app/getProcedures/${datosCookie.userid}`)
+  .then(response => {
+      if (response.ok) {
+          return response.json();
+      } else {
+          console.error('Error al obtener el procedimiento');
+          console.log(response.text());
+          return null;
+      }
+  })
+  .catch(error => {
+      console.error('Error al obtener el procedimiento:', error);
+      return null;
+  })
+
+  console.log(procedures);
+
 ---
 
 <LayoutProf title="Historial">
@@ -29,34 +46,25 @@
       <h3 class="text-xl font-bold mb-3">Procedimientos Recientes</h3>
 
       <ul class="flex flex-col gap-3" >
-        <li>
-          <div class="flex justify-between rounded-lg hover:bg-slate-300">
-            <div class="flex gap-4 p-1">
-              <img src="https://via.placeholder.com/50" alt="Imagen de procedimiento" />
-              <div class="flex flex-col justify-between">
-                <h4 class="font-semibold text-large text-text">Rinoplastia</h4>
-                <p class="text-subtext text-sm">Fecha: 12/12/2023</p>
+        {procedures.map((procedure : {id:number, procedurename:string, date:string, score:number}) =>
+          <li>
+            <a href=`/procedures/results${procedure.id}` class="flex justify-between rounded-lg hover:bg-slate-300">
+              <div class="flex gap-4 p-1">
+                <img src="https://via.placeholder.com/50" alt="Imagen de procedimiento" class="w- h-auto"/>
+                <div class="flex flex-col justify-between">
+                  <h4 class="font-semibold text-large text-text">{procedure.procedurename}</h4>
+                  <span class="flex gap-4">
+                    <p class="text-subtext text-sm">Fecha: {procedure.date}</p>
+                    <p class="text-subtext text-sm">Resultado: {procedure.score}</p>
+                  </span>
+                </div>
               </div>
-            </div>
-            <span class="mr-10 flex justify-center items-center">
-              <svg class="hover:bg-slate-400 rounded-full" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M13 7h-6l4 5l-4 5h6l4 -5z" /></svg>
-            </span>
-          </div>
-        </li>
-        <li>
-          <div class="flex justify-between rounded-lg hover:bg-slate-300">
-            <div class="flex gap-4 p-1">
-              <img src="https://via.placeholder.com/50" alt="Imagen de procedimiento" />
-              <div class="flex flex-col justify-between">
-                <h4 class="font-semibold text-large text-text">Mastectomia</h4>
-                <p class="text-subtext text-sm">Fecha: 31/01/2024</p>
-              </div>
-            </div>
-            <span class="mr-10 flex justify-center items-center">
-              <svg class="hover:bg-slate-400 rounded-full" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M13 7h-6l4 5l-4 5h6l4 -5z" /></svg>
-            </span>  
-          </div>
-        </li>
+              <span class="mr-10 flex justify-center items-center">
+                <svg class="hover:bg-slate-400 rounded-full" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M13 7h-6l4 5l-4 5h6l4 -5z" /></svg>
+              </span>
+            </a>
+          </li>
+        )}
       </ul>
     </main>
   </div>
