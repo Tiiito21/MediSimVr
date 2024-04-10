@@ -1,0 +1,70 @@
+---
+
+import LayoutProf from '../../layouts/LayoutProf.astro'
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import SideNav from '../../components/SideNav.astro';
+
+let datosCookie:{
+    name: string,
+    type: string,
+    userid: string
+};
+
+if (Astro.cookies.has("userData")) {
+const cookie = Astro.cookies.get("userData")
+    if(cookie){
+        datosCookie = JSON.parse(cookie.value);
+    }
+    
+}
+else{
+    return Astro.redirect('/login');
+}
+
+
+import { data } from '../../data/procedures.ts'
+
+
+const { name } = Astro.params;
+
+const procedure = data.find( procedure => procedure.nombre === name );
+
+if(!procedure){
+    return Astro.redirect('/404');
+}
+
+---
+
+<LayoutProf title="Procedimientos Medicos">
+  <Header estado={datosCookie.type}/>
+  <div class="flex gap-3 min-h-screen">
+      <SideNav nombre={datosCookie.name} estado={datosCookie.type} userid={datosCookie.userid}/>
+      <main class="w-full mt-3 mx-2">
+        <h1 class="text-2xl font-bold text-text mb-5">Procedimiento: {procedure.nombre}</h1>
+        <section class="grid grid-cols-2 w-full">
+            <div class="flex flex-col items-start justify-start gap-4">
+                <p class="text-subtext"><span class="font-bold text-text opacity-90">Descripción: </span> {procedure.descripcion}</p>
+                <p class="text-subtext">Para realizar este procedimiento es necesario:</p>
+                    <ul class="list-decimal list-inside ml-5 text-subtext">
+                        <li>Gafas De Realidad Virtual</li>
+                        <li>Al menos una superficie alrededor de 2x2m</li>
+                        <li>Recomendado: tener nociones basicas de cirugia</li>
+                    </ul>
+                
+                <p class="text-subtext">Tiempo aproximado: 50mins</p>
+                </ul>
+            </div>
+            <img src="/Uso.webp" alt="Imagen del procedimiento" class="h-3/4" />
+        </section>  
+
+
+        <div class="flex justify-center items-center mt-5">
+            <button type="button" class="text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Comenzar</button>
+        </div> 
+    </main>
+    </div>
+
+    <Footer />
+</LayoutProf>
+      
