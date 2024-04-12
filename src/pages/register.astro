@@ -88,7 +88,6 @@ if (Astro.cookies.has("userData")) {
         name,
         type
       };
-      console.log(registerData)
 
       fetch('https://medisimback-production.up.railway.app/register', {
         method: 'POST',
@@ -100,8 +99,6 @@ if (Astro.cookies.has("userData")) {
       .then(response => {
         if (response.ok) {
           // Si la solicitud se completó correctamente (estado 200 OK), maneja la respuesta aquí
-          // Puedes mostrar un mensaje al usuario o realizar alguna otra acción
-          console.log('Usuario creado exitosamente');
           return response.json(); // Convertir la respuesta a JSON
         } else if (response.status === 400) {
           // Si hay un error en la solicitud del cliente (estado 400 Bad Request)

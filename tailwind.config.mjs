@@ -17,7 +17,6 @@ export default {
         'subtext': '#767676',
         'sideNav': '#f3f3f3',
       }
-
     }
   },
 }

@@ -17,7 +17,12 @@
             </div>
             <div class="ml-2 text-text font-medium flex flex-col">
               <p>{nombre}</p>
-              <span class="self-center bg-blue-200 text-blue-800 px-1.5 py-0.5 w-auto text-sm rounded font-medium">
+              <span class:list={["self-center px-1.5 py-0.5 w-auto text-sm rounded font-medium",
+                            { hello: true, world: true },
+                             { "bg-blue-200 text-blue-800" : estado == "alumno",
+                               "bg-green-200 text-green-800" : estado == "profesor",
+                               "bg-amber-200 text-yellow-700" : estado == "profesional"
+                             }]}>
                 { estado.charAt(0).toUpperCase() + estado.slice(1)  }
               </span>
             </div>
